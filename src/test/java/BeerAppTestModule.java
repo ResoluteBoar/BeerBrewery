@@ -30,13 +30,21 @@ public class BeerAppTestModule {
     @Test
     public void testBrewery(){
         Brewery konix = new Brewery();
-
-        ArrayList<Beer> beers = new ArrayList<>();
         konix.setAddress("Лиговский проспект 129");
         konix.setName("ООО Коникс");
+        Beer balt9 = new Beer();
+        balt9.setName("Балтика 9");
+        balt9.setAlcoStrength(5.6f);
+        balt9.setType("Lager");
+
+
+        ArrayList<Beer> beers = new ArrayList<>();
+        beers.add(balt9);
+        konix.addBeer(balt9);
 
         assertEquals("ООО Коникс",konix.getName());
         assertEquals("Лиговский проспект 129", konix.getAddress());
+        assertEquals(beers,konix.getBeerTypes());
 
     }
 }
